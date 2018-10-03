@@ -2,4 +2,23 @@
 layout: default
 ---
 
-{{ content }}
+<div class="home">
+
+    {{ content }}
+
+    {%- if site.posts.size > 0 -%}
+    {%- for post in site.posts -%}
+    <div class="post-item">
+        <div class="post-header">
+            <h3><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+            {%- assign date_format = site.theme.date_format | default: "%b&nbsp;%-d<br>%Y" -%}
+            <div class="post-date">{{ post.date | date: date_format }}</div>
+        </div>
+        {%- if site.show_excerpts -%}
+        {{ post.excerpt }}
+        {%- endif -%}
+    </div>
+    {%- endfor -%}
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+    {%- endif -%}
+</div>

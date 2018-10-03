@@ -1,0 +1,24 @@
+@import "includes/colors";
+
+.site-header {
+  background-color: #c06c84;
+  width: 100%;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em;
+    margin: 0 auto;
+    max-width: 40em;
+
+    a {
+      color: $whiteColor;
+      font-family: "FiraCode";
+
+      &.page-link {
+        margin-left: 1em;
+      }
+    }
+  }
+}
