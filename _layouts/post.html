@@ -2,4 +2,25 @@
 layout: default
 ---
 
-{{ content }}
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">{{ page.title | escape }}</h1>
+        <p class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+                {%- assign date_format = site.theme.date_format | default: "%b %-d, %Y" -%}
+                {{ page.date | date: date_format }}
+            </time>
+            {%- if page.author.display_name -%}
+            • <span>{{ page.author.display_name }}</span>
+            {%- elsif page.author -%}
+            • <span>{{ page.author }}</span>
+            {%- endif -%}</p>
+    </header>
+    <div class="post-content e-content" itemprop="articleBody">
+        {{ content }}
+    </div>
+    {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+    {%- endif -%}
+    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
