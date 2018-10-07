@@ -5,6 +5,8 @@
 @import "includes/colors";
 @import "includes/fonts";
 @import "includes/header";
+@import "includes/post";
+@import "includes/page";
 
 body,
 p,
@@ -56,11 +58,26 @@ a {
       .post-date {
         display: flex;
         align-items: center;
-        color: #888888;
+        color: $grayColor;
         font-size: 0.8em;
         margin-left: 1em;
         text-align: right;
       }
     }
+  }
+}
+
+p {
+  img {
+    max-width: 100%;
+
+    &.centered {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &.center {
+    text-align: center;
   }
 }
