@@ -17,7 +17,14 @@
       font-family: "FiraCode";
 
       &.page-link {
-        margin-left: 1em;
+        border-right: solid 2px $whiteColor;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+
+        &:last-child {
+          border-right: none;
+          padding-right: 0;
+        }
       }
     }
   }
